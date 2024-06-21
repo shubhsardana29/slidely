@@ -13,8 +13,8 @@ router.get('/ping', (req, res) => {
     res.send(true);
 });
 router.post('/submit', (req, res) => {
-    const { name, email, phone, github_link, stopwatch_time } = req.body;
-    const newSubmission = { name, email, phone, github_link, stopwatch_time };
+    const { name, email, phone, GithubLink, StopwatchTime } = req.body;
+    const newSubmission = { name, email, phone, GithubLink, StopwatchTime };
     const data = JSON.parse(fs_1.default.readFileSync(dbPath, 'utf8'));
     data.submissions.push(newSubmission);
     fs_1.default.writeFileSync(dbPath, JSON.stringify(data, null, 2));
