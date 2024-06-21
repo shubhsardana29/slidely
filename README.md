@@ -23,27 +23,17 @@ FormApp is a Windows Desktop Application built using Visual Basic that replicate
 
 ### Main Form
 
-![Main Form](screenshots/main_form.png)
-
-![Screenshot 2024-06-21 at 3 14 49 PM](https://github.com/shubhsardana29/slidely/assets/52607235/6022f8aa-00ed-46a5-b825-6db38d2d5f5b)
-
-
-![Screenshot 2024-06-21 at 3 15 19 PM](https://github.com/shubhsardana29/slidely/assets/52607235/611d36a9-b0e4-4ffc-9866-60822fd57fdc)
-
+![Main Form](https://github.com/shubhsardana29/slidely/assets/52607235/f67da1e3-af18-4a75-b565-d82f06fed60b)
 
 
 ### Create Submission Form
 
-![Create Submission Form](screenshots/create_submission_form.png)
-
-![Screenshot 2024-06-21 at 3 15 44 PM](https://github.com/shubhsardana29/slidely/assets/52607235/c9af8a82-baf5-43ef-833a-455982222373)
+![Create Submission Form](https://github.com/shubhsardana29/slidely/assets/52607235/70a9448f-7bf0-49a0-89a4-91749ac58c9b)
 
 
 ### View Submissions Form
 
-![View Submissions Form](screenshots/view_submissions_form.png)
-
-![Screenshot 2024-06-21 at 3 15 33 PM](https://github.com/shubhsardana29/slidely/assets/52607235/90b9b1ca-2b0e-4327-96f3-8c81ca484243)
+![View Submissions Form](https://github.com/shubhsardana29/slidely/assets/52607235/99610be9-defe-4943-9dbb-6e94edad133a)
 
 
 ## Installation
@@ -59,7 +49,6 @@ FormApp is a Windows Desktop Application built using Visual Basic that replicate
 1. Clone the repository:
    ```sh
    git clone https://github.com/shubhsardana29/slidely.git
-   cd FormApp
    ```
 2. Open the solution file (FormApp.sln) in Visual Studio.
 
@@ -121,8 +110,8 @@ The backend is already hosted at https://slidely.onrender.com . If you want to r
   - name (string)
   - email (string)
   - phone (string)
-  - github_link (string)
-  - stopwatch_time (string)
+  - GithubLink (string)
+  - StopwatchTime (string)
   - Purpose: Save a new submission
 
     ```
@@ -132,9 +121,9 @@ The backend is already hosted at https://slidely.onrender.com . If you want to r
      -d '{
            "name": "John Doe",
            "email": "john.doe@example.com",
-           "phone": "123-456-7890",
-           "github_link": "https://github.com/johndoe",
-           "stopwatch_time": "00:05:30"
+           "phone": "1234567890",
+           "GithubLink": "https://github.com/johndoe",
+           "StopwatchTime": "00:05:30"
          }'
     ```
     
@@ -157,9 +146,9 @@ The backend server stores all submissions in a JSON file (db.json) located in th
   {
     "name": "John Doe",
     "email": "john.doe@example.com",
-    "phone": "123-456-7890",
-    "github_link": "https://github.com/johndoe",
-    "stopwatch_time": "00:05:30"
+    "phone": "1239457890",
+    "GithubLink": "https://github.com/johndoe",
+    "StopwatchTime": "00:05:30"
   }
 ]
 ```
