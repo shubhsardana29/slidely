@@ -94,6 +94,13 @@ The backend is already hosted at https://slidely.onrender.com . If you want to r
 2. Click on View Submissions or press Ctrl + V.
 3. Use the Previous and Next buttons to navigate through submissions.
 
+### Searching Submissions by Email:
+1. Open Postman or any HTTP client tool.
+2. Send a GET request to https://slidely.onrender.com/search?email=john.doe@example.com
+3. Replace john.doe@example.com with the email you want to search for.
+4. Review the response to see if a submission exists for the provided email.
+
+
 ## Backend API
    - Hosted BASE URL: https://slidely.onrender.com
 ### Endpoints
@@ -172,6 +179,18 @@ The backend is already hosted at https://slidely.onrender.com . If you want to r
        example:
        curl -X DELETE "https://slidely.onrender.com/delete?index=0"
        ```
+       
+- GET /search
+
+  - Query Parameters:
+    - email (string)
+  - Returns: Submission object matching the provided email
+  - Purpose: Search for a submission by email
+       ```
+       example:
+       curl -X GET "https://slidely.onrender.com/search?email=john.doe@example.com"
+       ```
+
 
 ## Data Storage
 The backend server stores all submissions in a JSON file (db.json) located in the backend folder. Here is an example of how data is stored:
