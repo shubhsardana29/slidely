@@ -9,8 +9,8 @@ interface Submission {
     name: string;
     email: string;
     phone: string;
-    github_link: string;
-    stopwatch_time: string;
+    GithubLink: string;
+    StopwatchTime: string;
 }
 
 router.get('/ping', (req: Request, res: Response) => {
@@ -18,8 +18,8 @@ router.get('/ping', (req: Request, res: Response) => {
 });
 
 router.post('/submit', (req: Request, res: Response) => {
-    const { name, email, phone, github_link, stopwatch_time } = req.body;
-    const newSubmission: Submission = { name, email, phone, github_link, stopwatch_time };
+    const { name, email, phone, GithubLink, StopwatchTime } = req.body;
+    const newSubmission: Submission = { name, email, phone, GithubLink, StopwatchTime };
 
     const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
     data.submissions.push(newSubmission);
