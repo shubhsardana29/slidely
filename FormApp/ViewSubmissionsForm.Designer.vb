@@ -35,6 +35,8 @@ Partial Class ViewSubmissionsForm
         Label4 = New Label()
         Label5 = New Label()
         Label6 = New Label()
+        ButtonEdit = New Button()
+        ButtonDelete = New Button()
         SuspendLayout()
         ' 
         ' ButtonPrevious
@@ -151,11 +153,31 @@ Partial Class ViewSubmissionsForm
         Label6.TabIndex = 12
         Label6.Text = "Stopwatch Time"
         ' 
+        ' ButtonEdit
+        ' 
+        ButtonEdit.Location = New Point(288, 369)
+        ButtonEdit.Name = "ButtonEdit"
+        ButtonEdit.Size = New Size(89, 23)
+        ButtonEdit.TabIndex = 13
+        ButtonEdit.Text = "Edit"
+        ButtonEdit.UseVisualStyleBackColor = True
+        ' 
+        ' ButtonDelete
+        ' 
+        ButtonDelete.Location = New Point(399, 369)
+        ButtonDelete.Name = "ButtonDelete"
+        ButtonDelete.Size = New Size(89, 23)
+        ButtonDelete.TabIndex = 14
+        ButtonDelete.Text = "Delete"
+        ButtonDelete.UseVisualStyleBackColor = True
+        ' 
         ' ViewSubmissionsForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
+        Controls.Add(ButtonDelete)
+        Controls.Add(ButtonEdit)
         Controls.Add(Label6)
         Controls.Add(Label5)
         Controls.Add(Label4)
@@ -188,4 +210,6 @@ Partial Class ViewSubmissionsForm
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
+    Friend WithEvents ButtonEdit As Button
+    Friend WithEvents ButtonDelete As Button
 End Class

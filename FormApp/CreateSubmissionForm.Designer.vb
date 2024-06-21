@@ -22,6 +22,7 @@ Partial Class CreateSubmissionForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         TextBoxName = New TextBox()
         TextBoxEmail = New TextBox()
         TextBoxPhone = New TextBox()
@@ -34,6 +35,7 @@ Partial Class CreateSubmissionForm
         Label3 = New Label()
         Label4 = New Label()
         Label5 = New Label()
+        Timer = New Timer(components)
         SuspendLayout()
         ' 
         ' TextBoxName
@@ -139,6 +141,10 @@ Partial Class CreateSubmissionForm
         Label5.TabIndex = 11
         Label5.Text = "Github link for task 2"
         ' 
+        ' Timer
+        ' 
+        Timer.Interval = 1000
+        ' 
         ' CreateSubmissionForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -174,4 +180,5 @@ Partial Class CreateSubmissionForm
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
+    Friend WithEvents Timer As Timer
 End Class

@@ -1,4 +1,5 @@
 ﻿Imports System.Net.Http
+Imports System.Text
 Imports System.Threading.Tasks
 Imports Newtonsoft.Json
 
@@ -38,6 +39,38 @@ Public Class ViewSubmissionsForm
         Await LoadSubmission(currentIndex)
     End Sub
 
+    ' Event handler for the Edit button
+    Private Async Sub ButtonEdit_Click(sender As Object, e As EventArgs) Handles ButtonEdit.Click
+        Dim submission As New Submission With {
+            .name = TextBoxName.Text,
+            .email = TextBoxEmail.Text,
+            .phone = TextBoxPhone.Text,
+            .GithubLink = TextBoxGithubLink.Text,
+            .StopwatchTime = TextBoxStopwatchTime.Text
+        }
 
+        Dim json As String = JsonConvert.SerializeObject(submission)
+        Dim content As New StringContent(json, Encoding.UTF8, "application/json")
+
+        Dim response As HttpResponseMessage = Await httpClient.PutAsync("https://slidely.onrender.com/update?index=" & currentIndex, content)
+        If response.IsSuccessStatusCode Then
+            MessageBox.Show("Submission updated successfully")
+        Else
+            MessageBox.Show("Failed to update submission")
+        End If
+    End Sub
+
+    ' Event handler for the Delete button
+    Private Async Sub ButtonDelete_Click(sender As Object, e As EventArgs) Handles ButtonDelete.Click
+        Dim response As HttpResponseMessage = Await httpClient.DeleteAsync("https://slidely.onrender.com/delete?index=" & currentIndex)
+        If response.IsSuccessStatusCode Then
+            MessageBox.Show("Submission deleted successfully")
+            If currentIndex > 0 Then
+                currentIndex -= 1
+            End If
+            Await LoadSubmission(currentIndex)
+        Else
+            MessageBox.Show("Failed to delete submission")
+        End If
+    End Sub
 End Class
-
