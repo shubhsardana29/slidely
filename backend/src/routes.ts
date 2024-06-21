@@ -39,4 +39,34 @@ router.get('/read', (req: Request, res: Response) => {
     }
 });
 
+router.put('/update', (req: Request, res: Response) => {
+    const index = parseInt(req.query.index as string, 10);
+    const { name, email, phone, GithubLink, StopwatchTime } = req.body;
+    const updatedSubmission: Submission = { name, email, phone, GithubLink, StopwatchTime };
+
+    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+
+    if (index >= 0 && index < data.submissions.length) {
+        data.submissions[index] = updatedSubmission;
+        fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+        res.status(200).send('Submission updated');
+    } else {
+        res.status(404).send('Submission not found');
+    }
+});
+
+
+router.delete('/delete', (req: Request, res: Response) => {
+    const index = parseInt(req.query.index as string, 10);
+    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+
+    if (index >= 0 && index < data.submissions.length) {
+        data.submissions.splice(index, 1);
+        fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+        res.status(200).send('Submission deleted');
+    } else {
+        res.status(404).send('Submission not found');
+    }
+});
+
 export const routes = router;
