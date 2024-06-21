@@ -18,9 +18,9 @@ Public Class CreateSubmissionForm
 
     Private Async Sub ButtonSubmit_Click(sender As Object, e As EventArgs) Handles ButtonSubmit.Click
         Dim submission As New Submission With {
-            .Name = TextBoxName.Text,
-            .Email = TextBoxEmail.Text,
-            .Phone = TextBoxPhone.Text,
+            .name = TextBoxName.Text,
+            .email = TextBoxEmail.Text,
+            .phone = TextBoxPhone.Text,
             .GithubLink = TextBoxGithubLink.Text,
             .StopwatchTime = stopwatch.Elapsed.ToString("hh\:mm\:ss")
         }

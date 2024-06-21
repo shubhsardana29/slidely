@@ -18,7 +18,7 @@ Public Class ViewSubmissionsForm
 
             TextBoxName.Text = submission.name
             TextBoxEmail.Text = submission.email
-            TextBoxPhone.Text = submission.Phone
+            TextBoxPhone.Text = submission.phone
             TextBoxGithubLink.Text = submission.GithubLink
             TextBoxStopwatchTime.Text = submission.StopwatchTime
         Else
