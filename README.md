@@ -19,6 +19,10 @@ FormApp is a Windows Desktop Application built using Visual Basic that replicate
 - View submissions with navigation buttons to browse through entries.
 - Hosted backend to handle API requests.
 
+  ## Additional Features
+  - Option for deletion of submitted forms
+  - Option for editing submitted form
+
 ## Screenshots
 
 ### Main Form
@@ -28,12 +32,12 @@ FormApp is a Windows Desktop Application built using Visual Basic that replicate
 
 ### Create Submission Form
 
-![Create Submission Form](https://github.com/shubhsardana29/slidely/assets/52607235/70a9448f-7bf0-49a0-89a4-91749ac58c9b)
+![Create Submission Form](https://github.com/shubhsardana29/slidely/assets/52607235/5440a1f7-4f87-4712-95c2-1aeb5f62a8c8)
 
 
 ### View Submissions Form
 
-![View Submissions Form](https://github.com/shubhsardana29/slidely/assets/52607235/99610be9-defe-4943-9dbb-6e94edad133a)
+![View Submissions Form](https://github.com/shubhsardana29/slidely/assets/52607235/66d2d106-8be2-4efc-8005-34ef4f7006f0)
 
 
 ## Installation
@@ -91,7 +95,7 @@ The backend is already hosted at https://slidely.onrender.com . If you want to r
 3. Use the Previous and Next buttons to navigate through submissions.
 
 ## Backend API
-
+   - Hosted BASE URL: https://slidely.onrender.com
 ### Endpoints
 
 - GET /ping
@@ -138,6 +142,36 @@ The backend is already hosted at https://slidely.onrender.com . If you want to r
     example:
     curl -X GET "https://slidely.onrender.com/read?index=0"
     ```
+    
+- PUT /update
+
+    - Query Parameters:
+       - index (integer)
+     - Purpose: Updates a submitted form with given index
+   
+       ```
+       example:
+       curl -X PUT https://slidely.onrender.com/update?index=0 \
+        -H "Content-Type: application/json" \
+        -d '{
+              "name": "Updated Name",
+              "email": "updatedjohn.doe@example.com",
+              "phone": "1234567890",
+              "GithubLink": "https://github.com/johndoe",
+              "StopwatchTime": "00:05:30"
+            }'
+       ```
+    
+- DELETE /delete
+
+    - Query Parameters:
+       - index (integer)
+     - Purpose: Deletes a submitted form with given index
+   
+       ```
+       example:
+       curl -X DELETE "https://slidely.onrender.com/delete?index=0"
+       ```
 
 ## Data Storage
 The backend server stores all submissions in a JSON file (db.json) located in the backend folder. Here is an example of how data is stored:
@@ -162,6 +196,9 @@ When the ViewSubmissionsForm in the desktop application requests a submission, i
 
   - Ctrl + N: Create New Submission
   - Ctrl + V: View Submissions
+  - Ctrl + N: Click Next button ( to view next submitted form)
+  - Ctrl + P: Click Previous button ( to view previous submitted form)
+  - Ctrl + T: Toggle Stopwatch
   - Ctrl + S: Submit Form (on Create Submission page)
 
 ## Contributing
