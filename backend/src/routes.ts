@@ -69,4 +69,16 @@ router.delete('/delete', (req: Request, res: Response) => {
     }
 });
 
+router.get('/search', (req: Request, res: Response) => {
+    const email = req.query.email as string;
+    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    const foundSubmission = data.submissions.find((submission: Submission) => submission.email === email);
+
+    if (foundSubmission) {
+        res.json(foundSubmission);
+    } else {
+        res.status(404).send('Submission not found');
+    }
+});
+
 export const routes = router;
