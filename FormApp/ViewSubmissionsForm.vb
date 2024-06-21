@@ -11,16 +11,16 @@ Public Class ViewSubmissionsForm
     End Sub
 
     Private Async Function LoadSubmission(index As Integer) As Task
-        Dim response As HttpResponseMessage = Await httpClient.GetAsync("http://localhost:3000/read?index=" & index)
+        Dim response As HttpResponseMessage = Await httpClient.GetAsync("https://slidely.onrender.com/read?index=" & index)
         If response.IsSuccessStatusCode Then
             Dim responseBody As String = Await response.Content.ReadAsStringAsync()
             Dim submission As Submission = JsonConvert.DeserializeObject(Of Submission)(responseBody)
 
             TextBoxName.Text = submission.name
             TextBoxEmail.Text = submission.email
-            TextBoxPhone.Text = submission.phone
-            TextBoxGithubLink.Text = submission.github_link
-            TextBoxStopwatchTime.Text = submission.stopwatch_time
+            TextBoxPhone.Text = submission.Phone
+            TextBoxGithubLink.Text = submission.GithubLink
+            TextBoxStopwatchTime.Text = submission.StopwatchTime
         Else
             MessageBox.Show("Submission not found")
         End If
@@ -39,10 +39,3 @@ Public Class ViewSubmissionsForm
     End Sub
 End Class
 
-Public Class Submission
-    Public name As String
-    Public email As String
-    Public phone As String
-    Public github_link As String
-    Public stopwatch_time As String
-End Class
