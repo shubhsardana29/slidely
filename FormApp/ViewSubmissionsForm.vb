@@ -8,6 +8,7 @@ Public Class ViewSubmissionsForm
     Private httpClient As HttpClient = New HttpClient()
 
     Private Async Sub ViewSubmissionsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.KeyPreview = True
         Await LoadSubmission(currentIndex)
     End Sub
 
@@ -71,6 +72,18 @@ Public Class ViewSubmissionsForm
             Await LoadSubmission(currentIndex)
         Else
             MessageBox.Show("Failed to delete submission")
+        End If
+    End Sub
+
+    Private Async Sub ViewSubmissionsForm_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.Control AndAlso e.KeyCode = Keys.P Then
+            If currentIndex > 0 Then
+                currentIndex -= 1
+                Await LoadSubmission(currentIndex)
+            End If
+        ElseIf e.Control AndAlso e.KeyCode = Keys.N Then
+            currentIndex += 1
+            Await LoadSubmission(currentIndex)
         End If
     End Sub
 End Class

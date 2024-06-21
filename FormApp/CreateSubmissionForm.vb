@@ -10,11 +10,16 @@ Public Class CreateSubmissionForm
     Private WithEvents TimerStopwatch As New Timer()
 
     Private Sub CreateSubmissionForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.KeyPreview = True
         TimerStopwatch.Interval = 1000 ' 1 second
         TimerStopwatch.Start()
     End Sub
 
     Private Sub ButtonToggleStopwatch_Click(sender As Object, e As EventArgs) Handles ButtonToggleStopwatch.Click
+        ToggleStopwatch()
+    End Sub
+
+    Private Sub ToggleStopwatch()
         If stopwatch.IsRunning Then
             stopwatch.Stop()
             ButtonToggleStopwatch.Text = "Start Stopwatch"
@@ -29,6 +34,10 @@ Public Class CreateSubmissionForm
     End Sub
 
     Private Async Sub ButtonSubmit_Click(sender As Object, e As EventArgs) Handles ButtonSubmit.Click
+        SubmitForm()
+    End Sub
+
+    Private Async Sub SubmitForm()
         If ValidateForm() Then
             Dim submission As New Submission With {
                 .name = TextBoxName.Text,
@@ -60,4 +69,12 @@ Public Class CreateSubmissionForm
         End If
         Return True
     End Function
+
+    Private Sub CreateSubmissionForm_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.Control AndAlso e.KeyCode = Keys.S Then
+            SubmitForm()
+        ElseIf e.Control AndAlso e.KeyCode = Keys.T Then
+            ToggleStopwatch()
+        End If
+    End Sub
 End Class
