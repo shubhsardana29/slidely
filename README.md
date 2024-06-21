@@ -196,6 +196,9 @@ When the ViewSubmissionsForm in the desktop application requests a submission, i
 
   - Ctrl + N: Create New Submission
   - Ctrl + V: View Submissions
+  - Ctrl + N: Click Next button ( to view next submitted form)
+  - Ctrl + P: Click Previous button ( to view previous submitted form)
+  - Ctrl + T: Toggle Stopwatch
   - Ctrl + S: Submit Form (on Create Submission page)
 
 ## Contributing
